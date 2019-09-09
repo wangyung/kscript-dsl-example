@@ -9,7 +9,6 @@ import kotlinx.coroutines.runBlocking
 class SimpleApp : Tag("app") {
 
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.Default)
-
     internal var entryPoint: (suspend () -> Int)? = null
 
     internal fun run() = runBlocking {

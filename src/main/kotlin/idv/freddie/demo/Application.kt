@@ -3,24 +3,12 @@
  */
 package idv.freddie.demo
 
-import idv.freddie.demo.model.SimpleApp
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class DslApplication
 
 fun main(args: Array<String>) {
-    val scriptRuntime = ScripRuntime()
-    val i = "i"
-    val code = """
-        import idv.freddie.demo.model.SimpleApp
-        import idv.freddie.demo.dsl.*
-
-        app {
-          main {
-            repeat(5) { i ->
-              println("Hello world $$i")
-            }
-            return@main 0
-          }
-        }
-    """.trimIndent()
-    val myApp = scriptRuntime.eval(code)
-    (myApp as? SimpleApp)?.run()
+    runApplication<DslApplication>(*args)
 }
