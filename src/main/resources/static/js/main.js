@@ -8,7 +8,7 @@ function updateDsl() {
         code: getDslValue()
     };
 
-    fetch("/update", {
+    fetch("/run", {
         method: "post",
         headers: {
             "Accept": "application/json",
@@ -17,6 +17,8 @@ function updateDsl() {
         body: JSON.stringify(payload)
     }).then(function (response) {
         console.info(response.status);
-        document.getElementById("extensionUrl").textContent = getUrl()
+        response.text().then(function (text) {
+            document.getElementById("output").textContent = text;
+        });
     })
 }

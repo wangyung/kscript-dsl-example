@@ -30,6 +30,11 @@
             </div>
         </div>
     </form>
+    <div class="d-flex p-1 my-2 output-area">
+        <pre id="output" class="output-area">
+        &nbsp;&nbsp;
+        </pre>
+    </div>
 </div>
 <script>
     var editor = CodeMirror.fromTextArea(document.getElementById("codeArea"), {
@@ -37,6 +42,7 @@
         lineNumbers: true,
         indentUnit: 2
     });
+    editor.setSize(null, 300);
 </script>
 </body>
 </html>

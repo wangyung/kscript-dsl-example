@@ -9,9 +9,6 @@ plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.3.50"
     id("org.jetbrains.kotlin.plugin.spring") version "1.3.50"
-
-    // Apply the application plugin to add support for building a CLI application.
-//    application
 }
 
 repositories {
@@ -21,6 +18,7 @@ repositories {
 }
 
 dependencies {
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
     implementation("org.jetbrains.kotlin:kotlin-script-util:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:$kotlinVersion")
