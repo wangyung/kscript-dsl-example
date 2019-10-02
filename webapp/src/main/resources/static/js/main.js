@@ -20,5 +20,7 @@ function updateDsl() {
         response.text().then(function (text) {
             document.getElementById("output").textContent = text;
         });
+    }).catch(function() {
+        document.getElementById("output").textContent = "couldn't get response from server";
     })
 }
