@@ -22,6 +22,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
     implementation("org.springframework.boot:spring-boot-starter-webflux:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-devtools:$springBootVersion")
