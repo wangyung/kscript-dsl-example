@@ -8,3 +8,4 @@
  */
 
 rootProject.name = "kscript-with-dsl"
+include(":runtime", ":webapp")

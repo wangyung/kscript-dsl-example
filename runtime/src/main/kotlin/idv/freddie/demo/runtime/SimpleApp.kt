@@ -30,7 +30,7 @@ class SimpleApp : Tag("app") {
             }
         }
 
-    internal fun run(): Int = runBlocking {
+    fun run(): Int = runBlocking {
         var result: Int = -1
         scope.launch {
             result = entryPoint?.invoke() ?: -1
