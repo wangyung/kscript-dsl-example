@@ -20,6 +20,8 @@ class SimpleApp : Tag("app") {
 
     init {
         appId = 10000 + (Math.random() * 10000).toInt()
+        System.setOut(outPrintStream)
+        System.setErr(outPrintStream)
     }
 
     val stdout: String
@@ -38,36 +40,3 @@ class SimpleApp : Tag("app") {
         return@runBlocking result
     }
 }
-
-fun SimpleApp.println(message: Any?) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Int) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Long) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Byte) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Short) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Char) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Boolean) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Float) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: Double) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println(message: CharArray) =
-    outPrintStream.println(message)
-
-fun SimpleApp.println() =
-    outPrintStream.println()

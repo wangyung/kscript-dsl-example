@@ -10,13 +10,18 @@ class ScriptRuntime {
     init { scriptEngine.eval("val x = 1") }
 
     fun eval(script: String): Any = try {
-            println("running the code ${IMPORTS + script}")
-            scriptEngine.eval(IMPORTS + script)
+        val strippedCode = stripIllegalFunction(IMPORTS + script)
+            println("running the code $strippedCode")
+            scriptEngine.eval(strippedCode)
         } catch (e: IllegalStateException) {
             throw ScriptException(SCRIPT_CANT_RUN)
         }
 
+    private fun stripIllegalFunction(code: String): String =
+            code.replace(SYSTEM_EXIT_PATTERN, "")
+
     companion object {
+        private val SYSTEM_EXIT_PATTERN = Regex("System\\.exit\\(\\d*\\)")
         private val IMPORTS = """
             import idv.freddie.demo.dsl.*
             import idv.freddie.demo.runtime.*
