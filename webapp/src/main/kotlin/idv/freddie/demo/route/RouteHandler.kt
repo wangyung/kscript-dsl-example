@@ -55,7 +55,11 @@ class RouteHandler {
         }
         
         /**
-         * Mini app with 1 property and 1 function 
+         * Mini app with 1 property and 1 function
+         *
+         * - appId: The id of this mini app
+         * - httpClient(domain: String), The http client
+         *   - get(uri: String): String, call GET and return the body as String
          */
         app {
           // entry point
