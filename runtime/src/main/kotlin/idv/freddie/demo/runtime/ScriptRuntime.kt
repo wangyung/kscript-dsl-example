@@ -26,6 +26,7 @@ class ScriptRuntime {
             import idv.freddie.demo.dsl.*
             import idv.freddie.demo.runtime.*
             import idv.freddie.demo.runtime.SimpleApp.*
+            import idv.freddie.demo.runtime.OkHttpClient.*
 
         """.trimIndent()
         private const val SCRIPT_CANT_RUN = "Can't run this script."

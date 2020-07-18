@@ -1,14 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-val kotlinVersion = "1.3.50"
+val kotlinVersion = "1.3.72"
 val springBootVersion = "2.1.7.RELEASE"
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm")
     id("org.springframework.boot") version "2.1.7.RELEASE"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.3.50"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.3.72"
 }
 
 repositories {
@@ -26,6 +26,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-devtools:$springBootVersion")
+    implementation("net.java.dev.jna:jna:5.6.0")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
@@ -48,4 +49,10 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Jar> {
     archiveBaseName.set("kscript-demo")
     archiveVersion.set("0.1.0")
+}
+
+kotlin {
+    experimental {
+        coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
+    }
 }

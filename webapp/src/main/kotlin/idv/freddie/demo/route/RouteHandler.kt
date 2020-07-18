@@ -47,10 +47,22 @@ class RouteHandler {
 
     companion object {
         private const val APP_ID_VARIABLE = "\$appId"
+        private const val CONTENT_VARIABLE = "\$content"
         private val DEFAULT_CODE = """
+        fun getYahooContent(): String {
+            val client = httpClient(domain = "https://tw.yahoo.com")
+            return client.get()
+        }
+        
+        /**
+         * Mini app with 1 property and 1 function 
+         */
         app {
+          // entry point
           main {
-            println("Hello world, id=$APP_ID_VARIABLE")
+            val content = getYahooContent()
+            println("Hello Kotlin, appId=$APP_ID_VARIABLE")
+            println("Yahoo content: $CONTENT_VARIABLE")
             return@main 0
           }
         }
